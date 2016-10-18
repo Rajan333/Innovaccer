@@ -26,7 +26,7 @@ check_nginx_status()
 
 check_mysql_status()
 {
-	MYSQL_STATUS=`service mysql status`
+	MYSQL_STATUS=`service mysqld status | grep Active | awk '{print $3}' | tr -d '()'`
 	if [ $MYSQL_STATUS == "running" ];then
 		echo "mysql is running successfully"
 	else
