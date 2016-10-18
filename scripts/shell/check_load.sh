@@ -23,7 +23,7 @@ get_free_mem()
 	RAM_THRESHOLD=300
 	if [ $FREE_RAM_SIZE -lt $RAM_THRESHOLD ];then
 		echo `date` 'Sending critical email. Memory almost full.'
-		mail -s 'Disk Space Alert' rajan.middha@innovaccer.com << EOF
+		mail -s 'Memory Space Alert' rajan.middha@innovaccer.com << EOF
 		Free space on RAM is critically low. Used: $FREE_RAM_SIZE"MB"
 EOF
 	fi
