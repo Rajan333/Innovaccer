@@ -22,7 +22,7 @@ get_free_mem()
 	FREE_RAM_SIZE=`free -m | grep  Mem | awk '{print $4}'`
 	RAM_THRESHOLD=300
 	if [ $FREE_RAM_SIZE -lt $RAM_THRESHOLD ];then
-		echo `date` 'Sending critical email. Disk almost full.'
+		echo `date` 'Sending critical email. Ram almost full.'
 		mail -s 'Disk Space Alert' rajan.middha@innovaccer.com << EOF
 		Your root partition remaining free space is critically low. Used: $FREE_RAM_SIZE"MB"
 EOF
