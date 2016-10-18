@@ -27,7 +27,7 @@ check_nginx_status()
 check_mysql_status()
 {
 	MYSQL_STATUS=`service mysql status`
-	if [ $MYSQL_STATUS == "runnning" ];then
+	if [ $MYSQL_STATUS == "running" ];then
 		echo "mysql is running successfully"
 	else
 		echo "mysql is not running. Plz Check..!!!"
@@ -35,6 +35,18 @@ check_mysql_status()
 	fi
 }
 
+check_mongodb_status()
+{
+	MONGODB_STATUS=`service mongodb status`
+	if [ $MONGODB_STATUS == "running" ];then
+		echo "mongodb is running successfully"
+	else
+		echo "mongodb not running. Plz Check..!!!"
+	fi
+}
+
 check_root
 check_nginx_status
+check_mysql_status
+check_mongodb_status
 
