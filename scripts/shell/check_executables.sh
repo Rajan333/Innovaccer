@@ -13,10 +13,11 @@ EOM
 
 sleep 3
 
-declare -a help_array=(chgpasswd chpasswd cppw cpgr)
-declare -a version_array=(alsa-info.sh)
+declare -a help_array=(chgpasswd chpasswd cppw cpgr cups-browsed cups-calibrate localedef locale-gen)
+declare -a version_array=(alsa-info.sh lpc postcat postdrop postlock postlog pppdump rmt rmt-tar sendmail 411toppm)
+declare -a ignore_array=(cracklib-check cracklib-format lightdm-session pam-auth-update pppoeconf rtmpsrv rtmpsuck)
 
-rm executables.log
+echo " " > executables.log
 
 for each_path in `echo ${PATH//:/ }`
 do
@@ -43,6 +44,14 @@ do
 				$each_command --version
 				STATUS="$?"
 				echo "$each_command" :: "$STATUS" >> executables.log		
+				flag=1
+			fi
+		done
+		
+		for ign_comm in ${ignore_array[@]}
+		do
+			if [ "$ign_comm" == "$each_command" ];then
+				echo "Ingoring: $ign_comm" >> executables.log
 				flag=1
 			fi
 		done
