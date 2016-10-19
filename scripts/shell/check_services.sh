@@ -9,7 +9,7 @@ check_root()
 {
 	AMIROOT=`whoami`
 	if [ $AMIROOT != "root" ];then
-		echo "This script can only run by root user"
+		echo "This script can only run by ROOT user...!!!"
 		exit 3
 	fi
 }
@@ -26,7 +26,11 @@ check_nginx_status()
 
 check_mysql_status()
 {
+<<<<<<< HEAD
 	MYSQL_STATUS=`service mysql status`
+=======
+	MYSQL_STATUS=`service mysqld status | grep Active | awk '{print $3}' | tr -d '()'`
+>>>>>>> 974ca2acfc431653b1f5ec8fbd98e4f2abea77a7
 	if [ $MYSQL_STATUS == "running" ];then
 		echo "mysql is running successfully"
 	else
@@ -45,8 +49,36 @@ check_mongodb_status()
 	fi
 }
 
+<<<<<<< HEAD
+=======
+check_spark_status()
+{
+	SPARK_STATUS=`service spark status  | grep Active | awk '{print $2}'`
+	if [ $SPARK_STATUS == "active" ];then
+		echo "spark is running successfully"
+	else
+		echo "spark is not running. Plz Check..!!!"
+	fi
+}
+
+check_ambari_status()
+{
+	AMBARI_STATUS=`service ambari-server status | grep "Ambari Server" | head -1 | awk '{print $3}'`
+	if [ $AMBARI_STATUS == "running" ];then
+		echo "Ambari is running successfully"
+	else 
+		echo "Ambari is not running successfully. Plz Check..!!!"
+	fi
+}
+
+>>>>>>> 974ca2acfc431653b1f5ec8fbd98e4f2abea77a7
 check_root
 check_nginx_status
 check_mysql_status
 check_mongodb_status
+<<<<<<< HEAD
 
+=======
+check_spark_status
+check_ambari_status
+>>>>>>> 974ca2acfc431653b1f5ec8fbd98e4f2abea77a7
