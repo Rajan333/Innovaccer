@@ -13,12 +13,15 @@ export AWS_DEFAULT_OUTPUT="json"
 ###############################################
 
 TIME=`date +%d-%b-%y`
+OLD_TIME=`date +%d-%b-%y --date="7 days ago"`
 FILENAME="backup-$TIME.tar.gz"
+OLDFILENAME="backup-$OLD_TIME.tar.gz"
 SRC_DIR="src"
 DEST_DIR="dest"
 BUCKET_NAME="innovaccer-git-backup"
 
 backup(){
+mkdir -p old_bkp
 echo "Taking backup on $TIME"
 echo "tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR"
 echo "Backup Created"
@@ -26,6 +29,12 @@ echo "Backup Created"
 echo "Moving $FILENAME to s3"
 aws s3 mv $DEST_DIR/$FILENAME s3://$BUCKET_NAME/$FILENAME
 echo "Backup Transferred to s3" 
+
+echo "Removing old backups"
+aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
+rm -rf old_bkp
+
+echo "Done..!!!"
 }
 
 backup
