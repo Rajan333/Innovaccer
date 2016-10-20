@@ -10,7 +10,7 @@ Description: This script will check whether the Root partition and Free Memory o
 Usage: bash check_load.sh
 
 Task2: Completed check_services.sh Script
-Description: This script will check whether services like mysql,nginx,spark,ambari are currently running or not.
+Description: This script will check whether services like mysql,nginx,mongodb,spark,ambari are currently running or not.
 Usage: sudo bash check_services.sh
 
 Task3: Completed check_executables.sh Script
