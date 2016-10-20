@@ -18,4 +18,6 @@ Description: This script will check exit status of all the executables that exis
 Usage: bash check_executables.sh
 
 Task4: Create list of all ec2 instances and shared it with Priyank and Akif for aws cleanup
+
+Task5: Created basic git backup script(Some Changes Required)
 }_ 
