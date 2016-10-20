@@ -18,7 +18,8 @@ SRC_DIR="src"
 DEST_DIR="dest"
 BUCKET_NAME="innovaccer-git-backup"
 
-backup(){
+backup()
+{
 echo "Taking backup on $TIME"
 echo "tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR"
 echo "Backup Created"
