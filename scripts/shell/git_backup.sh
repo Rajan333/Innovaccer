@@ -5,9 +5,9 @@ set -e
 
 ######## Export aws credentials ########
 
-export AWS_ACCESS_KEY_ID="AKIAJ6S56CD4GDK3F27A"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_DEFAULT_REGION="us-west-2"
+export AWS_ACCESS_KEY_ID="access_key"
+export AWS_SECRET_ACCESS_KEY="secret_access_key"
+export AWS_DEFAULT_REGION="region"
 export AWS_DEFAULT_OUTPUT="json"
 
 ###############################################
