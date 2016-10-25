@@ -27,25 +27,26 @@ backup(){
 
 ###### Create Backup ######
 mkdir -p old_bkp
-echo "Taking backup on $TIME" >> git_backup.log
+echo "Taking backup on $TIME" >> $DEST_DIR/git_backup.log
 tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR
 echo "Backup Created" >> git_backup.log
 
 ###### Transfer Backup to S3 ######
-echo "Moving $FILENAME to s3" >> git_backup.log
-aws s3 mv $DEST_DIR/$FILENAME s3://$BUCKET_NAME/$FILENAME
-echo "Backup Transferred to s3" >> git_backup.log
+echo "Moving $FILENAME to s3" >> $DEST_DIR/git_backup.log
+#aws s3 mv $DEST_DIR/$FILENAME s3://$BUCKET_NAME/$FILENAME
+aws s3 cp $DEST_DIR/$FILENAME s3://$BUCKET_NAME/$FILENAME
+echo "Backup Transferred to s3" >> $DEST_DIR/git_backup.log
 
 ###### Remove Old Backups ######
-echo "Removing old backups" >> git_backup.log
-aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
-rm -rf old_bkp
-echo "Old backups removed" >> git_backup.log
+echo "Removing old backups" >> $DEST_DIR/git_backup.log
+#aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
+#rm -rf old_bkp
+echo "Old backups removed" >> $DEST_DIR/git_backup.log
 
 ###### Send notification mail for process update ######
 echo "Backup Process Completed Successfully...!!!" | mail -s "Backup Process" rajan.middha@innovaccer.com
 
-echo "Done..!!!" >> git_backup.log
+echo "Done..!!!" >> $DEST_DIR/git_backup.log
 }
 
 if [ ! -f backup.lock ];then
