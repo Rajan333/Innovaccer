@@ -40,6 +40,7 @@ echo "Backup Transferred to s3"
 echo "Removing old backups"
 aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
 rm -rf old_bkp
+echo "Old backups removed"
 
 ###### Send notification mail for process update ######
 echo "Backup Process Completed Successfully...!!!" | mail -s "Backup Process" rajan.middha@innovaccer.com
