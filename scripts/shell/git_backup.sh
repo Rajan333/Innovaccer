@@ -1,6 +1,9 @@
 #!/bin/bash
 ###___AUTHOR:RAJAN MIDDHA___###
 
+### Dependenies ###
+# awscli
+ 
 set -e
 
 ######## Export aws credentials ########
@@ -16,8 +19,8 @@ TIME=`date +%d-%b-%y`
 OLD_TIME=`date +%d-%b-%y --date="15 days ago"`
 FILENAME="backup-$TIME.tar.gz"
 OLDFILENAME="backup-$OLD_TIME.tar.gz"
-SRC_DIR="src"
-DEST_DIR="dest"
+SRC_DIR="/mnt/gitlab-repositories"
+DEST_DIR="/home/rajan_middha"
 BUCKET_NAME="innovaccer-git-backup"
 
 backup(){
@@ -25,7 +28,7 @@ backup(){
 ###### Create Backup ######
 mkdir -p old_bkp
 echo "Taking backup on $TIME"
-echo "tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR"
+tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR
 echo "Backup Created"
 
 ###### Transfer Backup to S3 ######
@@ -38,7 +41,11 @@ echo "Removing old backups"
 aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
 rm -rf old_bkp
 
+###### Send notification mail for process update ######
+echo "Backup Process Completed Successfully...!!!" | mail -s "Backup Process" rajan.middha@innovaccer.com
+
 echo "Done..!!!"
+}
 }
 
 backup
