@@ -55,3 +55,5 @@ if [ ! -f backup.lock ];then
 	rm -rf backup.lock
 else
 	echo "backup.lock exists. Plz Check"
+fi
+
