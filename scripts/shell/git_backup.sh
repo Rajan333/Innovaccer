@@ -20,13 +20,13 @@ OLD_TIME=`date +%d-%b-%y --date="15 days ago"`
 FILENAME="backup-$TIME.tar.gz"
 OLDFILENAME="backup-$OLD_TIME.tar.gz"
 SRC_DIR="/mnt/gitlab-repositories"
-DEST_DIR="/home/rajan_middha"
-BUCKET_NAME="innovaccer-git-backup"
+DEST_DIR="/mnt/gitlab-bkp-rj"
+BUCKET_NAME="inno-git-backup"
 
 backup(){
 
 ###### Create Backup ######
-mkdir -p old_bkp
+mkdir -p old_bkp $DEST_DIR
 echo "Taking backup on $TIME" >> $DEST_DIR/git_backup.log
 tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR
 echo "Backup Created" >> git_backup.log
@@ -39,8 +39,8 @@ echo "Backup Transferred to s3" >> $DEST_DIR/git_backup.log
 
 ###### Remove Old Backups ######
 echo "Removing old backups" >> $DEST_DIR/git_backup.log
-#aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
-#rm -rf old_bkp
+aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
+rm -rf old_bkp
 echo "Old backups removed" >> $DEST_DIR/git_backup.log
 
 ###### Send notification mail for process update ######
