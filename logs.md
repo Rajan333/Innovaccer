@@ -14,3 +14,7 @@ __________________________________________
 
 	Task1: Created User access for mercy-staging server
 	Task2: Created Jenkins-Staging Server for test builds
+
+## Date: 27-October-2016
+	
+	Task1: Completed and tested git_backup.sh script
