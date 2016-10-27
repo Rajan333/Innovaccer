@@ -25,6 +25,9 @@ BUCKET_NAME="inno-git-backup"
 
 backup(){
 
+####### Change Permission ####
+sudo chmod -R o+rwx $SRC_DIR
+
 ###### Create Backup ######
 mkdir -p old_bkp $DEST_DIR
 echo "Backup Initiated on $TIME" >> git_backup.log
@@ -48,9 +51,13 @@ echo "Old backup[filename: $OLDFILENAME ] removed" >> git_backup.log
 ###### Send notification mail for process update ######
 echo "Backup Process Completed Successfully...!!!" | mail -s "Backup Process" rajan.middha@innovaccer.com
 
+sudo chmod -R o-rwx $SRC_DIR  ### Change to previous permissions
+
 echo "Done..!!!" >> git_backup.log
+echo " " >> git_backup.log
 echo "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* " >> git_backup.log
 echo " " >> git_backup.log
+
 }
 
 if [ ! -f backup.lock ];then
