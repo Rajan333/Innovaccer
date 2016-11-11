@@ -3,7 +3,7 @@
 GIT_USERNAME="abc"
 GIT_PASSWORD="xyz"
 
-ssh ambari-3 << ENDOFCOMMANDS
+ssh ambari << ENDOFCOMMANDS
 echo "Installing oh-my-zsh git vim & wget" >> ~/ambari_setup.log
 sudo yum install zsh git-core vim wget -y
 wget --no-check-certificate http://install.ohmyz.sh -O - | sh
@@ -54,6 +54,6 @@ echo "Fabric Installed" >> ~/ambari_setup.log
 echo "Installation almost completed..." >> ~/ambari_setup.log
 ENDOFCOMMANDS
 
-echo "Remote Installation Completed..Now ssh to server and run 'cd DataShop-Infra && python fabfile.py' "
+echo "Remote Installation Completed..Now ssh to server and run 'cd DataShop-Infra && python fabfile.py && sudo ambari-server start' "
 
 echo "Done..."
