@@ -1,4 +1,15 @@
 #!/bin/bash
+###___AUTHOR:RAJAN MIDDHA___###
+
+cat<<EOM
+
+	+-----------------------------------------+
+	| This script will setup ambari to remote |
+	| from local system and install necessary |
+	| packages and zsh theme on remote server |
+	+-----------------------------------------+
+
+EOM
 
 GIT_USERNAME="abc"
 GIT_PASSWORD="xyz"
