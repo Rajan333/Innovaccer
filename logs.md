@@ -18,3 +18,9 @@ __________________________________________
 ## Date: 27-October-2016
 	
 	Task1: Completed and tested git_backup.sh script
+
+## Date: 11-November-2016
+	
+	Task1: Created ambari_setup.sh script
+
+
