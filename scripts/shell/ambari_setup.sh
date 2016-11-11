@@ -1,6 +1,11 @@
 #!/bin/bash
 ###___AUTHOR:RAJAN MIDDHA___###
 
+### Dependencies ###
+# ssh access to remote server [configured in .ssh/config]
+# Git Username
+# Git Password	
+
 cat<<EOM
 
 	+-----------------------------------------+
@@ -11,10 +16,11 @@ cat<<EOM
 
 EOM
 
+SERVER_NAME=$1
 GIT_USERNAME="abc"
 GIT_PASSWORD="xyz"
 
-ssh ambari << ENDOFCOMMANDS
+ssh $SERVER_NAME << ENDOFCOMMANDS
 echo "Installing oh-my-zsh git vim & wget" >> ~/ambari_setup.log
 sudo yum install zsh git-core vim wget -y
 wget --no-check-certificate http://install.ohmyz.sh -O - | sh
