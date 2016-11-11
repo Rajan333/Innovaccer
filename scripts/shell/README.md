@@ -22,3 +22,13 @@
 	Description: This script will take backup of git repos (in tar.gz format) and store it to s3 bucket. This script stores backups for last 15 days and remove the old backups.  
 	Dependencies: awscli  
 	Usage: bash git_bakup.sh
+
+## ambari_setup.sh
+	Objective: To setup ambari server
+	Description: This script will setup ambari on remote from local system and install necessary packages and zsh theme on remote server 
+	Dependencies: server pre-configured in .ssh/cconfig and git creds
+	Usage: bash ambari_setup.sh server_name
+
+
+
+
