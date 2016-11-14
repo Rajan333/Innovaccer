@@ -69,7 +69,7 @@ echo "Installing fabric" >> ~/ambari_setup.log
 sudo pip install fabric
 echo "Fabric Installed" >> ~/ambari_setup.log
 
-echo "Installation almost completed..." >> ~/ambari_setup.log
+echo "Remote Installation part completed..." >> ~/ambari_setup.log
 ENDOFCOMMANDS
 
 echo "Remote Installation Completed..Now ssh to server and run 'cd Datashop-Infra && python fabfile.py && sudo ambari-server start' "
