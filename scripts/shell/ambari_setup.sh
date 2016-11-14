@@ -2,6 +2,7 @@
 ###___AUTHOR:RAJAN MIDDHA___###
 
 ### Dependencies ###
+# ssh-keygen already generated on remote server
 # ssh access to remote server [configured in .ssh/config]
 # Git Username
 # Git Password	
@@ -71,6 +72,6 @@ echo "Fabric Installed" >> ~/ambari_setup.log
 echo "Installation almost completed..." >> ~/ambari_setup.log
 ENDOFCOMMANDS
 
-echo "Remote Installation Completed..Now ssh to server and run 'cd DataShop-Infra && python fabfile.py && sudo ambari-server start' "
+echo "Remote Installation Completed..Now ssh to server and run 'cd Datashop-Infra && python fabfile.py && sudo ambari-server start' "
 
 echo "Done..."
