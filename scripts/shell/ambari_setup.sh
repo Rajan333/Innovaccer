@@ -17,8 +17,8 @@ cat<<EOM
 EOM
 
 SERVER_NAME=$1
-GIT_USERNAME="abc"
-GIT_PASSWORD="xyz"
+GIT_USERNAME=$2
+GIT_PASSWORD=$3
 
 ssh $SERVER_NAME << ENDOFCOMMANDS
 echo "Installing oh-my-zsh git vim & wget" >> ~/ambari_setup.log
@@ -32,6 +32,7 @@ source ~/.zshrc
 echo "Shell Changed to zsh [oh-my-zsh]" >> ~/ambari_setup.log
 
 echo "Configuring ssh to localhost" >> ~/ambari_setup.log
+ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod og-wx ~/.ssh/authorized_keys
 sudo chown -R ec2-user /opt/
@@ -71,6 +72,6 @@ echo "Fabric Installed" >> ~/ambari_setup.log
 echo "Installation almost completed..." >> ~/ambari_setup.log
 ENDOFCOMMANDS
 
-echo "Remote Installation Completed..Now ssh to server and run 'cd DataShop-Infra && python fabfile.py && sudo ambari-server start' "
+echo "Remote Installation Completed..Now ssh to server and run 'cd Datashop-Infra && python fabfile.py && sudo ambari-server start' "
 
 echo "Done..."
