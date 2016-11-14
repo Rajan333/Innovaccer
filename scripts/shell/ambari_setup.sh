@@ -2,7 +2,6 @@
 ###___AUTHOR:RAJAN MIDDHA___###
 
 ### Dependencies ###
-# ssh-keygen already generated on remote server
 # ssh access to remote server [configured in .ssh/config]
 # Git Username
 # Git Password	
@@ -33,6 +32,7 @@ source ~/.zshrc
 echo "Shell Changed to zsh [oh-my-zsh]" >> ~/ambari_setup.log
 
 echo "Configuring ssh to localhost" >> ~/ambari_setup.log
+ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod og-wx ~/.ssh/authorized_keys
 sudo chown -R ec2-user /opt/
