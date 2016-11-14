@@ -17,8 +17,8 @@ cat<<EOM
 EOM
 
 SERVER_NAME=$1
-GIT_USERNAME="abc"
-GIT_PASSWORD="xyz"
+GIT_USERNAME=$2
+GIT_PASSWORD=$3
 
 ssh $SERVER_NAME << ENDOFCOMMANDS
 echo "Installing oh-my-zsh git vim & wget" >> ~/ambari_setup.log
