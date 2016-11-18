@@ -18,12 +18,12 @@ FILENAME="backup-$TIME.tar.gz"
 OLDFILENAME="backup-$OLD_TIME.tar.gz"
 SRC_DIR="src"
 DEST_DIR="dest"
-BUCKET_NAME="innovaccer-git-backup"
+BUCKET_NAME="inno-git-backup"
 
 backup(){
 
 ###### Create Backup ######
-mkdir -p old_bkp
+mkdir -p $DEST_DIR/old_bkp
 echo "Taking backup on $TIME"
 echo "tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR"
 echo "Backup Created"
@@ -35,8 +35,8 @@ echo "Backup Transferred to s3"
 
 ###### Remove Old Backups ######
 echo "Removing old backups"
-aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
-rm -rf old_bkp
+aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME $DEST_DIR/old_bkp/
+rm -rf $DEST_DIR/old_bkp
 
 ###### Send notification mail for process update ######
 echo "Backup Process Completed Successfully...!!!" | mail -s "Backup Process" rajan.middha@innovaccer.com
