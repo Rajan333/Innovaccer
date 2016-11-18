@@ -29,7 +29,7 @@ backup(){
 sudo chmod -R o+rwx $SRC_DIR
 
 ###### Create Backup ######
-mkdir -p old_bkp $DEST_DIR
+mkdir -p $DEST_DIR/old_bkp 
 echo "Backup Initiated on $TIME" >> git_backup.log
 tar -cpzf $DEST_DIR/$FILENAME $SRC_DIR
 echo "Backup Created" >> git_backup.log
@@ -44,8 +44,8 @@ echo "Backup Transferred to s3-bucket" >> git_backup.log
 ###### Remove Old Backups ######
 echo "Looking for old backups backups to remove..." >> git_backup.log
 echo "old backup file: $OLDFILENAME"
-aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME old_bkp/
-rm -rf old_bkp
+aws s3 mv s3://$BUCKET_NAME/$OLDFILENAME $DEST_DIR/old_bkp/
+rm -rf $DEST_DIR/old_bkp
 echo "Old backup[filename: $OLDFILENAME ] removed" >> git_backup.log
 
 ###### Send notification mail for process update ######
