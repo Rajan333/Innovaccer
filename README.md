@@ -1,2 +1,0 @@
-# Innovaccer
-Work at Innovaccer
