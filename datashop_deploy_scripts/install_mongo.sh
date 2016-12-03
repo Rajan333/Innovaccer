@@ -8,15 +8,15 @@ cd /opt/packages
 
 ## Creating Repo ##
 echo "Creating mongodb Repo.."
-touch mongodb.repo
-echo "[MongoDB]" >> mongodb.repo
-echo "name=MongoDB Repository" >> mongodb.repo
-echo "baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/" >> mongodb.repo
-echo "gpgcheck=0" >> mongodb.repo
-echo "enabled=1" >> mongodb.repo
+touch mongodb-org-3.2.repo
+echo "[mongodb-org-3.2]" >> mongodb-org-3.2.repo
+echo "name=MongoDB Repository" >> mongodb-org-3.2.repo
+echo "baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/" >> mongodb-org-3.2.repo
+echo "gpgcheck=0" >> mongodb-org-3.2.repo
+echo "enabled=1" >> mongodb-org-3.2.repo
 
 
-sudo mv mongodb.repo /etc/yum.repos.d/
+sudo mv mongodb-org-3.2.repo /etc/yum.repos.d/
 cd
 
 ## Update Yum & Install Mongo ##
