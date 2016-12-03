@@ -22,19 +22,17 @@ install_mysql(){
 }
 
 install_mongo(){
-
-	## Creating Repo ##
+## Creating Repo ##
 	echo "Creating mongodb Repo.."
-	touch mongodb-org-3.2.repo
-	echo "[mongodb-org-3.2]" >> mongodb-org-3.2.repo
-	echo "name=MongoDB Repository" >> mongodb-org-3.2.repo
-	echo "baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/" >> mongodb-org-3.2.repo
-	echo "gpgcheck=1" >> mongodb-org-3.2.repo
-	echo "enabled=1" >> mongodb-org-3.2.repo
-	echo "gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc" >> mongodb-org-3.2.repo
+	touch mongodb.repo
+	echo "[MongoDB]" >> mongodb.repo
+	echo "name=MongoDB Repository" >> mongodb.repo
+	echo "baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/" >> mongodb.repo
+	echo "gpgcheck=0" >> mongodb.repo
+	echo "enabled=1" >> mongodb.repo
 
 
-	sudo mv mongodb-org-3.2.repo /etc/yum.repos.d/mongodb-org-3.2.repo
+	sudo mv mongodb.repo /etc/yum.repos.d/
 	cd
 
 	## Update Yum & Install Mongo ##
@@ -42,6 +40,7 @@ install_mongo(){
 	sudo yum update -y
 	sudo yum install -y mongodb-org
 	sudo service mongod start
+	sudo chkconfig mongod on
 	echo "Mongodb Successfully Installed."
 }
 
