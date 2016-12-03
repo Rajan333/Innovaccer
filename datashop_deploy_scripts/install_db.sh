@@ -60,16 +60,16 @@ install_redis(){
 }
 
 install_elasticsearch(){
-
 	## Creating Repo ##
 	echo "Creating elasticsearch repo.."
-	touch elasticsearch.repo
-	echo "[elasticsearch-2.x]" >> elasticsearch.repo
-	echo "name=Elasticsearch repository for 2.x packages" >> elasticsearch.repo
-	echo "baseurl=https://packages.elastic.co/elasticsearch/2.x/centos" >> elasticsearch.repo
-	echo "gpgcheck=1" >> elasticsearch.repo
-	echo "gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch" >> elasticsearch.repo
-	echo "enabled=1" >> elasticsearch.repo
+	cat << EOT >> elasticsearch.repo
+	[elasticsearch-2.x]
+	name=Elasticsearch repository for 2.x packages
+	baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
+	gpgcheck=1
+	gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
+	enabled=1
+EOT
 
 	sudo mv elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
 	cd
