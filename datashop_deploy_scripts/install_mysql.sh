@@ -9,12 +9,13 @@ cd /opt/packages
 
 ## Download RPM ##
 echo "Downloading mysql rpm.."
-wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
-sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
 
 ## Install Mysql Commandline/
 echo "Installing mysql.."
 sudo yum update -y
-sudo yum install mysql -y
+sudo yum install mysql-server -y
 sudo service mysqld start
+sudo mysql_secure_installation
 echo "Mysql Successfully Installed."
