@@ -2,8 +2,7 @@
 ###___AUTHOR:RAJAN MIDDHA___###
 
 ### Dependencies ###
-# Git Username
-# Git Password	
+# Git must be installed
 
 cat<<EOM
 
@@ -13,8 +12,8 @@ cat<<EOM
 
 EOM
 
-GIT_USERNAME=$1
-GIT_PASSWORD=$2
+GIT_USERNAME="platform"
+GIT_PASSWORD="innovation123"
 
 
 ## Install necessary packages ##
@@ -32,8 +31,10 @@ echo "sudo less ssh done" >> ~/ambari_setup.log
 ## Clone Datashop-infra Repository ##
 echo "Cloning DataShop Infra Git Repo" >> ~/ambari_setup.log
 echo "machine git.innovaccer.com login $GIT_USERNAME password $GIT_PASSWORD" >> ~/.netrc
-git clone http://git.innovaccer.com/akif/Datashop-Infra.git
+git clone http://git.innovaccer.com/Datashop/devops.git --branch ambari --single-branch Datashop-Infra
 rm -rf ~/.netrc
+sudo mv Datashop-Infra/Datashop-Infra/* Datashop-Infra/
+sudo rm -rf Datashop-Infra/Datashop-Infra
 echo "DataShop Infra Cloned" >> ~/ambari_setup.log
 
 ## Install Other Requirements ##
