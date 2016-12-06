@@ -1,4 +1,5 @@
 #!/bin/bash
+##__AUTHOR: RAJAN MIDDHA__##
 
 cat << EOM
 
@@ -33,8 +34,8 @@ sudo yum install sshpass -y
 ## Download Azkaban 2.5 ##
 mkdir -p Azkaban
 cd Azkaban
-sshpass -p inno scp -o "StrictHostKeyChecking no" inno@54.68.6.74:Azkaban.zip .
-unzip Azkaban.zip
+sshpass -p inno scp -o "StrictHostKeyChecking no" inno@54.68.6.74:Azkaban_updated.zip .
+unzip Azkaban_updated.zip
 
 ## Set config ##
 
