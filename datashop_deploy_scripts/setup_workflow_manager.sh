@@ -2,6 +2,8 @@
 ##__AUTHOR: RAJAN MIDDHA ##
 
 ## Install necessary packages
+sudo yum upgrade python-setuptools -y 
+sudo yum install python-pip python-wheel -y
 sudo yum install mysql mysql-devel mysql-lib -y
 sudo pip install flask MySQL-python thoonk redis gevent pymongo
 
