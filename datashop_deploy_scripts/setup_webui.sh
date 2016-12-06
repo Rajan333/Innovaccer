@@ -26,6 +26,7 @@ BUCKET_NAME="datashop-ui"
 ## Set Permissions ##
 sudo chown $USER /opt
 mkdir -p /opt/packages/web/
+cd /opt/packages
 
 ## Change Permissions ##
 sudo chown -R $USER /usr/local/lib/
@@ -38,10 +39,16 @@ sudo tar -C /usr/local --strip-components 1 -xf node-v6.9.1-linux-x64.tar.xz
 
 ## Download UI ZIP ##
 DATE=$(date +%Y-%m-%d)
-FILENAME=`aws s3 ls s3://BUCKET_NAME | grep ${DATE} | head -1 | awk '{print $4}'`
-aws s3 cp s3://$BUCKET_NAME/$FILENAME .
 
+FILENAME=`AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ" AWS_SECRET_ACCESS_KEY="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" aws s3 ls s3://$BUCKET_NAME | grep ${DATE} | head -1 | awk '{print $4}'`
+
+AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ" AWS_SECRET_ACCESS_KEY="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" aws s3 cp s3://$BUCKET_NAME/$FILENAME web/
+
+cd web/
 tar -xvf $FILENAME
+
+DIRECTORY=`echo $FILENAME | cut -d'.' -f1`
+cd $DIRECTORY
 
 ## Start Service
 ./setup.sh
