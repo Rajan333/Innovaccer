@@ -41,7 +41,6 @@ unzip Azkaban_updated.zip
 
 ## Sync services to the server ##
 scp -o "StrictHostKeyChecking no" schema.sql db:
-scp -o "StrictHostKeyChecking no" -r azkaban-executor-2.5.0 pnn1:
 
 ## Set Configurations on db_server ##
 ssh db << ENDOFCOMMANDS
@@ -53,12 +52,10 @@ sudo /sbin/service mysqld restart
 ENDOFCOMMANDS
 
 ## Start services on the server ##
-ssh pnn1 << ENDOFCOMMANDS
 cd azkaban-executor-2.5.0
 ./bin/azkaban-executor-start.sh
-ENDOFCOMMANDS
 
-cd azkaban-web-2.5.0
+cd ../azkaban-web-2.5.0
 ./bin/azkaban-web-start.sh
 
 echo "Azkaban Installation Successfully Completed.. "
