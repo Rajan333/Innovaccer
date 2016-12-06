@@ -9,6 +9,12 @@ cat << EOM
 		| 	**Dependencies: awscli		     |
 		+--------------------------------------------+
 EOM
+
+## Install necessary packages ##
+sudo yum install epel-release -y
+sudo yum install python-pip python-wheel -y
+sudo pip install awscli
+sudo pip install --upgrade awscli
 	 
 ######## Export aws credentials ########
 export AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ"
