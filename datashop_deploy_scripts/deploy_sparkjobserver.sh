@@ -9,6 +9,9 @@ cat << ENDOFFILE
 		| Dependencies:: git must be installed on server |
 		+------------------------------------------------+
 ENDOFFILE
+
+## Install git if not installed ##
+sudo yum installed git-core -y
 			
 ## Clone Spark Job Server Repo ##
 git clone https://github.com/spark-jobserver/spark-jobserver.git
@@ -17,15 +20,12 @@ git checkout v0.6.2
 
 ## Install SBT ##
 curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
-sudo yum install sbt
+sudo yum install sbt -y
 sbt clean update package assembly
 
 ## Download yarn.sh and yarn.conf 
-curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU " http://git.innovaccer.com/Datashop/client/snippets/83/raw >> yarn.sh
-curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU" http://git.innovaccer.com/Datashop/client/snippets/82/raw >> yarn.conf
-
-mv yarn.sh spark-jobserver/config/
-mv yarn.conf spark-jobserver/config/
+curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU " http://git.innovaccer.com/snippets/90/raw >> ~/spark-jobserver/config/yarn.sh
+curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU" http://git.innovaccer.com/snippets/89/raw >> ~/spark-jobserver/config/yarn.conf
 
 ## Install Service
 bin/server_package.sh yarn
@@ -34,3 +34,4 @@ bin/server_package.sh yarn
 cd /tmp/job-server
 ./server_start.sh
 
+echo "Spark Job Server Successfully Deployed.."
