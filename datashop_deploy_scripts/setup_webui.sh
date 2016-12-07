@@ -6,7 +6,7 @@ cat << EOM
 		+--------------------------------------------+
 		| This Script will setup WEB UI for Datashop |
 		| care frontend deployment.		     |
-		| 	**Dependencies: awscli		     |
+		| **Dependencies: awscli python-pip	     |
 		+--------------------------------------------+
 EOM
 
@@ -17,10 +17,10 @@ sudo pip install awscli
 sudo pip install --upgrade awscli
 	 
 ######## Export aws credentials ########
-export AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_DEFAULT_REGION="us-west-2"
-export AWS_DEFAULT_OUTPUT="json"
+#export AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ"
+#export AWS_SECRET_ACCESS_KEY="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"
+#export AWS_DEFAULT_REGION="us-west-2"
+#export AWS_DEFAULT_OUTPUT="json"
 
 BUCKET_NAME="datashop-ui"
 ## Set Permissions ##
