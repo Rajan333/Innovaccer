@@ -25,11 +25,11 @@ install_mongo(){
 	## Creating Repo ##
 	echo "Creating mongodb Repo.."
 	cat<<EOT >> mongodb-org-3.2.repo
-	[mongodb-org-3.2] 
-	name=MongoDB Repository
-	baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.2/x86_64/
-	gpgcheck=0
-	enabled=1
+[mongodb-org-3.2] 
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.2/x86_64/
+gpgcheck=0
+enabled=1
 EOT
 
 	sudo mv mongodb-org-3.2.repo /etc/yum.repos.d/
@@ -62,12 +62,12 @@ install_elasticsearch(){
 	## Creating Repo ##
 	echo "Creating elasticsearch repo.."
 	cat << EOT >> elasticsearch.repo
-	[elasticsearch-2.x]
-	name=Elasticsearch repository for 2.x packages
-	baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
-	gpgcheck=1
-	gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
-	enabled=1
+[elasticsearch-2.x]
+name=Elasticsearch repository for 2.x packages
+baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
+gpgcheck=1
+gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
+enabled=1
 EOT
 
 	sudo mv elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
