@@ -1,7 +1,7 @@
 Scripts for datashop deployment
 
 ## install_nginx.sh
-	Install ```nginx-1.10``` on server
+	Install `nginx-1.10` on server
 
 ## install_ambari.sh
 	Install ```ambari-2.2.2.0``` on server
