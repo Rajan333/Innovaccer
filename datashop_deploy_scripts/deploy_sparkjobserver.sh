@@ -23,9 +23,55 @@ curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm
 sudo yum install sbt -y
 sbt clean update package assembly
 
-## Download yarn.sh and yarn.conf 
-curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU " http://git.innovaccer.com/snippets/90/raw >> ~/spark-jobserver/config/yarn.sh
-curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU" http://git.innovaccer.com/snippets/89/raw >> ~/spark-jobserver/config/yarn.conf
+
+## Setup yarn.sh and yarn.conf ##
+cat << EOT >> ~/spark-jobserver/config/yarn.sh
+DEPLOY_HOST="localhost"
+APP_USER=spark
+APP_GROUP=spark
+LOG_DIR=/var/log/job-server
+PIDFILE=spark-jobserver.pid
+JOBSERVER_MEMORY=2G
+SPARK_VERSION=1.6.2
+MAX_DIRECT_MEMORY=512M
+SPARK_HOME=/usr/hdp/current/spark-client
+SPARK_CONF_DIR=$SPARK_HOME/conf
+SCALA_VERSION=2.10.5
+EOT 
+
+cat << EOT >> ~/spark-jobserver/config/yarn.conf
+spark {
+	master = "yarn-client"
+	job-number-cpus = 4
+	jobserver {
+		port = 8090
+		jar-store-rootdir = /opt/packages/jobserver/jars
+		context-per-jvm = true
+		jobdao = spark.jobserver.io.JobFileDAO
+		filedao {
+			rootdir = /opt/packages/spark-job-server/filedao/data
+		}
+		result-chunk-size = 1m
+		}
+	context-settings {
+		num-cpu-cores = 4
+		memory-per-node = 2G
+		passthrough {
+			es.nodes = "db"
+			es.port = "9200"
+			es.index.auto.create = "false"
+		}
+	}
+}
+akka {
+	remote.netty.tcp {
+		maximum-frame-size = 100Mib
+		}
+}	
+EOT
+
+#curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU " http://git.innovaccer.com/snippets/90/raw >> ~/spark-jobserver/config/yarn.sh
+#curl --header "PRIVATE-TOKEN: 2txfzrEGHbWD5WW79BKU" http://git.innovaccer.com/snippets/89/raw >> ~/spark-jobserver/config/yarn.conf
 
 ## Install Service
 bin/server_package.sh yarn
