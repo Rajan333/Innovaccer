@@ -18,6 +18,7 @@ install_mysql(){
 	sudo yum install mysql-server -y
 	sudo service mysqld start
 	sudo mysql_secure_installation
+	mysql -u root -proot -e "GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'root';"
 	echo "Mysql Successfully Installed."	
 }
 
