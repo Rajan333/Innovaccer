@@ -13,7 +13,7 @@ Install `HDP stack-2.4`
 Add Services in ambari
 
 ## install_db.sh
-Install `mysql-5.7.16`,`mongodb-3.2.0`,`redis-3.2.5`,elasticsearch-2.4.0` on server
+Install `mysql-5.7.16`,`mongodb-3.2.0`,`redis-3.2.5`,`elasticsearch-2.4.0` on server
 
 ## install_mysql.sh
 Install `mysql-5.7.16` on server
