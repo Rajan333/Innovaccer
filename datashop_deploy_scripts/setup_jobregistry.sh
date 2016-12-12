@@ -1,4 +1,5 @@
 #!/bin/bash
+##__AUTHOR: RAJAN MIDDHA__##
 
 cat << EOM
 	+--------------------------------------+
