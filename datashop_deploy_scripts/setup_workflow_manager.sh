@@ -1,7 +1,16 @@
 #!/bin/bash
-##__AUTHOR: RAJAN MIDDHA ##
+##__AUTHOR: RAJAN MIDDHA__##
+
+cat << EOM
+		+-----------------------------------------+
+		| This Script will setup WorkFlow Manager |
+		| and Install its required dependencies	  |
+		| on the server.			  |
+		+-----------------------------------------+ 
+EOM
 
 ## Install necessary packages
+sudo yum install git-core epel-release -y
 sudo yum upgrade python-setuptools -y 
 sudo yum install python-pip python-wheel -y
 sudo yum install mysql mysql-devel mysql-lib -y
@@ -15,17 +24,10 @@ cd /opt/packages/WorkFlowManagerAPI
 
 ## Clone Repository ##
 git init
-git remote add origin http://git.innovaccer.com/DatashopCore/Services.git
-git pull origin/WorkflowConfiguration
+git remote add origin http://git.innovaccer.com/sharath.akinapally/WorkFlowManagerAPI.git
+git pull origin staging
 
-## Update config.py ##
-
-## Start WorkFlowManager ##
-sudo python setup.py install
 cd WorkFlowManagerAPI
-sudo python server.py
 
-
-
-
+echo "Update config.py and Run Command 'python server.py' to start"
 
