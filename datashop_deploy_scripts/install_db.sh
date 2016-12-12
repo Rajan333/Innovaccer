@@ -14,7 +14,6 @@ install_mysql(){
 
 	## Install Mysql Commandline/
 	echo "Installing mysql.."
-	sudo yum update -y
 	sudo yum install mysql-server -y
 	sudo service mysqld start
 	sudo mysql_secure_installation
@@ -38,7 +37,6 @@ EOT
 
 	## Update Yum & Install Mongo ##
 	echo "Installing mongodb.."
-	sudo yum update -y
 	sudo yum install -y mongodb-org
 	sudo service mongod start
 	sudo chkconfig mongod on
@@ -76,7 +74,6 @@ EOT
 
 	## Update Yum & Install Mongo ##
 	echo "Installing ElasticSearch.."
-	sudo yum update -y
 	sudo yum install elasticsearch -y
 	echo "ElasticSearch Sucessfully Installed."
 }

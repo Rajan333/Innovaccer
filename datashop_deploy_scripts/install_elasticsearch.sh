@@ -22,6 +22,5 @@ cd
 
 ## Update Yum & Install Mongo ##
 echo "Installing ElasticSearch.."
-sudo yum update -y
 sudo yum install elasticsearch -y
 echo "ElasticSearch Sucessfully Installed."

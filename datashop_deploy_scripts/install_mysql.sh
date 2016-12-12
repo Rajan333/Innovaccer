@@ -14,7 +14,6 @@ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
 
 ## Install Mysql Commandline/
 echo "Installing mysql.."
-sudo yum update -y
 sudo yum install mysql-server -y
 sudo service mysqld start
 sudo mysql_secure_installation

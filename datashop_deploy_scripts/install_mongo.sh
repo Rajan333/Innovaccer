@@ -21,7 +21,6 @@ cd
 
 ## Update Yum & Install Mongo ##
 echo "Installing mongodb.."
-sudo yum update -y
 sudo yum install -y mongodb-org
 sudo service mongod start
 sudo chkconfig mongod on

@@ -28,7 +28,6 @@ else
 fi
 
 sudo mv home:Strahlex.repo /etc/yum.repos.d/
-sudo yum update -y
 sudo yum install sshpass -y
 
 ## Download Azkaban 2.5 ##
