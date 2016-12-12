@@ -32,4 +32,7 @@ git pull origin develop
 sbt clean compile assembly
 cd target/scala-*
 
+## Make Curl Request on server on which spark job server is running ##
 curl --data-binary @Datashop-assembly-1.0.jar rsm:8090/jars/datashop
+
+echo "Done."
