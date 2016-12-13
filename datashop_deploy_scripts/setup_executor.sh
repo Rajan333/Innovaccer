@@ -1,4 +1,8 @@
 #!/bin/bash
+##__AUTHOR: RAJAN MIDDHA__##
+
+sudo yum install figlet -y
+clear
 
 cat << EOM
 		+-------------------------------------------+
@@ -6,6 +10,8 @@ cat << EOM
 		| and install all required dependencies	    |
 		+-------------------------------------------+
 EOM
+figlet Executor
+sleep 5
 
 GIT_USERNAME="platform"
 GIT_PASSWORD="innovation123"

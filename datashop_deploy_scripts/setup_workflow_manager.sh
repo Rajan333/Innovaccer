@@ -1,6 +1,9 @@
 #!/bin/bash
 ##__AUTHOR: RAJAN MIDDHA__##
 
+sudo yum install figlet -y
+clear
+
 cat << EOM
 		+-----------------------------------------+
 		| This Script will setup WorkFlow Manager |
@@ -8,6 +11,9 @@ cat << EOM
 		| on the server.			  |
 		+-----------------------------------------+ 
 EOM
+
+figlet WrokFlow Manager
+sleep 5
 
 ## Install necessary packages
 sudo yum install git-core epel-release -y

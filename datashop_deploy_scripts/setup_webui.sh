@@ -1,6 +1,9 @@
 #!/bin/bash
 ##__AUTHOR:RAJAN MIDDHA__##
 
+sudo yum install figlet -y
+clear
+
 cat << EOM
 
 		+--------------------------------------------+
@@ -9,6 +12,9 @@ cat << EOM
 		| **Dependencies: awscli python-pip	     |
 		+--------------------------------------------+
 EOM
+
+figlet Web UI
+sleep 5
 
 ## Install necessary packages ##
 sudo yum install epel-release -y

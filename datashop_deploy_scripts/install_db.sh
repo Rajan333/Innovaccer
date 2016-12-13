@@ -1,6 +1,11 @@
 #!/bin/bash
 ##__AUTHOR: RAJAN MIDDHA__##
 
+sudo yum install figlet -y
+clear
+figlet Databases
+sleep 5
+
 ## Set Permissions ##
 sudo chown -R $USER /opt
 mkdir -p /opt/packages

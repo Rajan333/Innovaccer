@@ -10,8 +10,12 @@ cat << ENDOFFILE
 		+------------------------------------------------+
 ENDOFFILE
 
+sudo yum install figlet -y
+figlet Spark Job Server
+sleep 3
+
 ## Install git if not installed ##
-sudo yum installed git-core -y
+sudo yum install git-core -y
 			
 ## Clone Spark Job Server Repo ##
 git clone https://github.com/spark-jobserver/spark-jobserver.git

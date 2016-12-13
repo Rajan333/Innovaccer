@@ -12,6 +12,11 @@ cat << EOM
 	+-------------------------------------+
 EOM
 
+sudo yum install figlet -y
+clear
+figlet Azkaban
+sleep 5
+
 ## Set permissions
 sudo chown -R $USER /opt
 mkdir /opt/packages

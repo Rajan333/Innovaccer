@@ -1,6 +1,8 @@
 #!/bin/bash
 ##__AUTHOR: RAJAN MIDDHA__##
 
+sudo yum install figlet -y
+clear
 cat << EOM
 		+--------------------------------+
 		| This Script will setup Jobs on |
@@ -8,6 +10,9 @@ cat << EOM
 		| its required dependencies.	 |
 		+--------------------------------+
 EOM
+
+figlet Jobs
+sleep 5
 
 GIT_USERNAME="platform"
 GIT_PASSWORD="innovation123"
