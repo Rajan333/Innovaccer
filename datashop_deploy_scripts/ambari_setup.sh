@@ -12,8 +12,8 @@ cat<<EOM
 
 EOM
 
-GIT_USERNAME="platform"
-GIT_PASSWORD="innovation123"
+GIT_USERNAME="username"
+GIT_PASSWORD="passsword"
 
 
 ## Install necessary packages ##

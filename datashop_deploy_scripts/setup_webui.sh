@@ -23,10 +23,10 @@ sudo pip install awscli
 sudo pip install --upgrade awscli
 	 
 ######## Export aws credentials ########
-#export AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ"
-#export AWS_SECRET_ACCESS_KEY="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"
-#export AWS_DEFAULT_REGION="us-west-2"
-#export AWS_DEFAULT_OUTPUT="json"
+export AWS_ACCESS_KEY_ID="access_key"
+export AWS_SECRET_ACCESS_KEY="secret_key"
+export AWS_DEFAULT_REGION="region"
+xport AWS_DEFAULT_OUTPUT="json"
 
 BUCKET_NAME="datashop-ui"
 ## Set Permissions ##
@@ -46,9 +46,9 @@ sudo tar -C /usr/local --strip-components 1 -xf node-v6.9.1-linux-x64.tar.xz
 ## Download UI ZIP ##
 DATE=$(date +%Y-%m-%d)
 
-FILENAME=`AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ" AWS_SECRET_ACCESS_KEY="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" aws s3 ls s3://$BUCKET_NAME | grep ${DATE} | head -1 | awk '{print $4}'`
+FILENAME=`AWS_ACCESS_KEY_ID="access_key" AWS_SECRET_ACCESS_KEY="secret_key" aws s3 ls s3://$BUCKET_NAME | grep ${DATE} | head -1 | awk '{print $4}'`
 
-AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ" AWS_SECRET_ACCESS_KEY="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" aws s3 cp s3://$BUCKET_NAME/$FILENAME web/
+AWS_ACCESS_KEY_ID="access_key" AWS_SECRET_ACCESS_KEY="secret_keey" aws s3 cp s3://$BUCKET_NAME/$FILENAME web/
 
 cd web/
 tar -xvf $FILENAME

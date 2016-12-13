@@ -13,9 +13,9 @@ cat << EOM
 EOM
 
 ######## Export aws credentials ########
-export AWS_ACCESS_KEY_ID="AKIAJMCRFJFK7E5P6DWQ"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_DEFAULT_REGION="us-west-2"
+export AWS_ACCESS_KEY_ID="access_key"
+export AWS_SECRET_ACCESS_KEY="secret_key"
+export AWS_DEFAULT_REGION="region"
 export AWS_DEFAULT_OUTPUT="json"
 
 ###### Assign Values ######

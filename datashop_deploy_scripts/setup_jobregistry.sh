@@ -14,8 +14,8 @@ EOM
 figlet Job Registry
 sleep 5
 
-GIT_USERNAME="platform"
-GIT_PASSWORD="innovation123"
+GIT_USERNAME="username"
+GIT_PASSWORD="password"
 
 ## Install Dependencies ##
 sudo yum install git-core -y

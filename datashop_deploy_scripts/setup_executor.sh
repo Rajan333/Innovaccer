@@ -13,8 +13,8 @@ EOM
 figlet Executor
 sleep 5
 
-GIT_USERNAME="platform"
-GIT_PASSWORD="innovation123"
+GIT_USERNAME="username"
+GIT_PASSWORD="password"
 
 ## Set permissions ##
 sudo chown -R $USER /opt

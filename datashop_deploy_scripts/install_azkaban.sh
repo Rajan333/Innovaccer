@@ -38,7 +38,7 @@ sudo yum install sshpass -y
 ## Download Azkaban 2.5 ##
 mkdir -p Azkaban
 cd Azkaban
-sshpass -p inno scp -o "StrictHostKeyChecking no" inno@54.68.6.74:Azkaban_updated.zip .
+sshpass -p password scp -o "StrictHostKeyChecking no" user@sftp_ip:Azkaban_updated.zip .
 unzip Azkaban_updated.zip
 
 ## Set config ##
