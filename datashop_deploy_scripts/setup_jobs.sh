@@ -11,7 +11,7 @@ cat << EOM
 		+--------------------------------+
 EOM
 
-figlet Jobs
+figlet J o b s
 sleep 5
 
 GIT_USERNAME="platform"
